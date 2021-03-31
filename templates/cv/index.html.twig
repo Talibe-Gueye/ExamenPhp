@@ -1,0 +1,14 @@
+{% extends 'index.html.twig' %}
+
+{% block title %}Postuler{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="card col-md-6 mt-5 offset-3" style="background-color: #cbd3da">
+            <div class="card-header" style="background-color: #95999c; color: white; font-size: 20px; font-weight: bold; font-family: Arial;text-align: center">Déposer son CV</div>
+            <div class="card-body">
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

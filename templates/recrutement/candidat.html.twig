@@ -1,0 +1,35 @@
+{% extends 'index.html.twig' %}
+
+{% block title %}Recrutement{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="container mt-4">
+        <div class="card col-md-12 mt-5 offset-1" style="background-color: #adb5bd; font-family: Arial; font-size: 16px; color: #16181b;text-align: center; text-transform: uppercase">
+            <div class="card-header">Liste des demandeurs</div>
+            <div class="card-body" style="background-color: #8fd19e">
+                <form action="" method="post">
+                    <table class="table table-info">
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Niveau Etude</th>
+                            <th>Experience Professionnelle</th>
+                            <th>Entreprise</th>
+                        </tr>
+                            {% for candidat in candidats %}
+                                <tr>
+                                   <td> {{ candidat.nom }} </td>
+                                   <td> {{ candidat.prenom }} </td>
+                                   <td> {{ candidat.niveauEtude }} </td>
+                                   <td> {{ candidat.experiencePro }} </td>
+                                   <td> {{ candidat.offre.nomEntreprise }} </td>
+                                </tr>
+                            {% endfor %}
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

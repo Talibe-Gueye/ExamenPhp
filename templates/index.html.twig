@@ -1,0 +1,80 @@
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Accueil{% endblock %}</title>
+    {% block stylesheets %}
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('template/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('template/css/heroic-features.css') }}" rel="stylesheet">
+    {% endblock %}
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <div class="navbar-brand">RECHERCHE EMPLOI</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{path('home')}}">Accueil
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_liste_candidat') }}">Liste des Demandeurs</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_offre') }}">Enregistrer des offres</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_recrutement') }}">Liste des offres</a>
+                        </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+                </li>
+
+                {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+                    </li>
+
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <!--div>
+        <img src="" style="width: 85%; height: auto;margin-top: 2%" alt="">
+    </div-->
+
+    {% block body %}
+
+    {% endblock %}
+
+</div>
+
+
+<script src="{{ asset('template/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+
+</html>
